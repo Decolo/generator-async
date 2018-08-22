@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "co": "^4.6.0"
+    "co": "^4.6.0",
+    "iconv": "^2.3.0",
+    "iconv-lite": "^0.4.23"
   }
 }

@@ -26,25 +26,27 @@ const gen = function* () {
 //   })
 // })
 
-const autoRun = (generator) => {
-  const g = generator()
-  const next = data => {
-    const result = g.next(data) 
-    if (result.done) {
-      return
-    }
-    result.value.then((_data) => {
-      next(_data)
-    })
-  }
+// const autoRun = (generator) => {
+//   const g = generator()
+//   const next = data => {
+//     const result = g.next(data) 
+//     if (result.done) {
+//       return
+//     }
+//     result.value.then((_data) => {
+//       next(_data)
+//     })
+//   }
 
-  next()
-}
-autoRun(gen)
-
-
+//   next()
+// }
+// autoRun(gen)
 
 
-// co(gen).then(() => {
-//   console.log('generator 执行完成')
-// })
+
+
+co(gen).then(() => {
+  console.log('generator 执行完成')
+}).catch(error => {
+  console.log(error.toString())
+})
